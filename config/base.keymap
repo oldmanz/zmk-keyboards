@@ -82,8 +82,6 @@ MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 /* Keymap */
 
-ZMK_CONDITIONAL_LAYER(FN SYM, SYS)  // FN + SYM --> SYS
-
 ZMK_LAYER(base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
   &kp Q         &kp W         &kp F         &kp P         &kp G           &kp J         &kp L         &kp U         &kp Y         &kp SQT    
