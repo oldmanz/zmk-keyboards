@@ -80,6 +80,12 @@ ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
 MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
+
+ZMK_BEHAVIOR(ctrl_hold, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&kp LCTRL>, <&kt LCTRL>;  // reverse this for sticky-num on single tap
+)
+
 /* Keymap */
 
 ZMK_LAYER(base,
@@ -120,7 +126,7 @@ ZMK_LAYER(fn,
 
 ZMK_LAYER(num,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-  &kp LBKT      &kp N7        &kp N8        &kp N9        &kp RBKT          ___           ___           ___           ___           ___        
+  &kp LBKT      &kp N7        &kp N8        &kp N9        &kp RBKT          &to 0         &to 7           &to 8           ___           ___        
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
   &kp SEMI      &kp N4        &kp N5        &kp N6        &kp EQUAL         ___           &kp RSHFT     &kp RCTRL     &kp LALT     &kp RGUI       
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -168,11 +174,11 @@ ZMK_LAYER(mouse,
 
 ZMK_LAYER(qwerty,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-  &kp Q         &kp W         &kp F         &kp P         &kp G           &kp J         &kp L         &kp U         &kp Y         &kp SQT    
+  &kp Q         &kp W         &kp E         &kp R         &kp T           &kp Y         &kp U         &kp I         &kp O         &kp P    
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp D           &kp H         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O
+  &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G           &kp H         &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L   &hmr LGUI SEMI
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  &lt MOUSE Z   &hml RALT X   &kp C         &kp V         &kp B           &kp K         &kp M         &kp COMMA     &hmr RALT DOT &lt MOUSE FSLH     
+  &lt MOUSE Z   &hml RALT X   &kp C         &kp V         &kp B           &kp N         &kp M         &kp COMMA     &hmr RALT DOT &lt MOUSE FSLH     
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                              &lt SYS ESC   &lt NAV SPACE  &lt FN TAB      &lt SYM RET   &lt NUM BSPC  &lt SYS DEL                                         
 //                                           ─────────────┴─────────────╯ ╰─────────────┴─────────────                                          
@@ -180,24 +186,24 @@ ZMK_LAYER(qwerty,
 
 ZMK_LAYER(game,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-  &kp Q         &kp W         &kp F         &kp P         &kp G           &kp J         &kp L         &kp U         &kp Y         &kp SQT    
+     &kp TAB       &kp Q         &kp W         &kp E         &kp R           &none         &none         &none         &none         &none    
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp D           &kp H         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O
+     &kp LSHFT     &kp A         &kp W         &kp D         &kp F           &none         &none         &none         &none         &none
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  &lt MOUSE Z   &hml RALT X   &kp C         &kp V         &kp B           &kp K         &kp M         &kp COMMA     &hmr RALT DOT &lt MOUSE FSLH     
+     &ctrl_hold    &kp Z         &kp X         &kp C         &kp V           &none         &none         &none         &none         &none     
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                             &lt SYS ESC   &lt NAV SPACE  &lt FN TAB      &lt SYM RET   &lt NUM BSPC  &lt SYS DEL                                         
+                             &lt SYS ESC    &lt GAME2 SPACE  &kp SPACE       &lt SYM RET   &lt NUM BSPC  &lt SYS DEL                                         
 //                                           ─────────────┴─────────────╯ ╰─────────────┴─────────────                                          
 )
 
 ZMK_LAYER(game2,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-  &kp Q         &kp W         &kp F         &kp P         &kp G           &kp J         &kp L         &kp U         &kp Y         &kp SQT    
+     &kp N1      &kp N2         &kp N3         &kp N4       &kp N5           &none         &none         &none         &none         &none    
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp D           &kp H         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O
+     &kp N1      &kp N2         &kp N3        &kp N4        &kp N5           &none         &none         &none         &none         &none 
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  &lt MOUSE Z   &hml RALT X   &kp C         &kp V         &kp B           &kp K         &kp M         &kp COMMA     &hmr RALT DOT &lt MOUSE FSLH     
+     &kp N6      &kp N7         &kp N8        &kp N9        &kp 0           &none         &none         &none         &none         &none      
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                             &lt SYS ESC   &lt NAV SPACE  &lt FN TAB      &lt SYM RET   &lt NUM BSPC  &lt SYS DEL                                         
+                             &lt SYS ESC      &kp SPACE     &kp SPACE      &lt SYM RET   &lt NUM BSPC  &lt SYS DEL                                         
 //                                           ─────────────┴─────────────╯ ╰─────────────┴─────────────                                          
 )
