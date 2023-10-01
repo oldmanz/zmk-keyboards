@@ -1,7 +1,5 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
     - name: oldmanz
       url-base: https://github.com/oldmanz
   projects:
