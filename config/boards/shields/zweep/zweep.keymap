@@ -15,7 +15,7 @@
 };
 
 / { 
-#define COLEMAK 0
+#define MAIN 0
 #define MEDIA 1
 #define NAV 2
 #define MOUSE 3
@@ -42,11 +42,11 @@ combos {
         keymap {
                 compatible = "zmk,keymap";
                 
-       		colemak_layer {
+       		main_layer {
 		bindings = <
-		&kp Q      &kp W       &kp F          &kp P          &kp G              &kp J         &kp L         &kp U         &kp Y        &kp SQT 
-		&mt LGUI A &mt LALT R  &mt LCTRL S    &mt LSHFT T    &kp D              &kp H         &mt RSHFT N   &mt RCTRL E   &mt LALT I   &mt RGUI O
-		&kp Z      &mt RALT X  &kp C          &kp V          &kp B              &kp K         &kp M         &kp COMMA     &mt RALT DOT &kp FSLH
+		&kp Q      &kp W       &kp E          &kp R          &kp T              &kp Y        &kp U         &kp I         &kp O        &kp P 
+		&mt LGUI A &mt LALT S  &mt LCTRL D    &mt LSHFT F    &kp G              &kp H         &mt RSHFT J   &mt RCTRL K   &mt LALT L   &mt RGUI SEMI
+		&kp Z      &mt RALT X  &kp C          &kp V          &kp B              &kp N         &kp M         &kp COMMA     &mt RALT DOT &kp FSLH
           				       &lt MEDIA ESC &lt NAV SPACE &lt MOUSE TAB        &lt SYM ENTER &lt NUM BSPC  &lt FUN DEL
 		>;
 		};
